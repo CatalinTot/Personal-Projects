@@ -1,0 +1,53 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="container">
+    <div class="row mt-3">
+        <div data-aos="fade-up-right" data-aos-duration="1000"
+            class="col-lg-6 d-flex flex-column justify-content-center align-items-center shadow p-3 rounded">
+            <h1 class="text-start w-75 contact-text">Get in touch!</h1>
+            <form novalidate class="w-75 needs-validation" action="/contact" method="POST">
+                <div class="row">
+                    <div class="col-md">
+                        <label for="name" class="form-label">Name</label>
+                        <div class="input-group mb-3">
+                            <input required type="text" class="form-control" id="name" name="name" value="Tot">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <label for="surname" class="form-label">Surname</label>
+                        <div class="input-group mb-3">
+                            <input required type="text" class="form-control" id="surname" name="surname" value="Catalin">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label for="e-mail" class="form-label">E-mail</label>
+                <div class="input-group mb-3">
+                    <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                    <input required type="e-mail" class="form-control" id="e-mail" name="email" value="tot_catalin@yahoo.com">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <label for="message" class="form-label">Message</label>
+                <div class="input-group mb-3">
+                    <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                    <textarea class="form-control" name="message" id="message" cols="30" rows="3">What's up bro?</textarea>
+                </div>
+                <button class="contact-button">Send</button>
+            </form>
+        </div>
+        <div data-aos="fade-up-left" data-aos-duration="1000" class="col-lg-6 shadow">
+            <div class="iframe-div">
+                <iframe src="https://xd.adobe.com/embed/041617f4-2a1c-4ef7-bf7e-dc192163888e-5145/" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+
+        </div>
+    </div>
+</div>

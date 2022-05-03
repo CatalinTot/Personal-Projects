@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>disable</Nullable>
+		<CodeAnalysisRuleSet>juniormind.ruleset</CodeAnalysisRuleSet>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\Files\Europe.png" />
+		<None Remove="Resources\Files\Groceries.png" />
+		<None Remove="Resources\Files\Profile.jpg" />
+		<None Remove="Resources\Files\Profile1.jpg" />
+		<None Remove="Resources\Files\Profile2.jpg" />
+		<None Remove="Resources\Files\Profile3.jpg" />
+		<None Remove="Resources\Files\Profile4.jpg" />
+		<None Remove="Resources\Files\RevolutMetal.png" />
+		<None Remove="Resources\Files\RevolutPremium.png" />
+		<None Remove="Resources\Files\RevolutStandard.png" />
+		<None Remove="Resources\Files\Romania.jpg" />
+		<None Remove="Resources\Files\World-map.png" />
+		<None Remove="Resources\Roboto-Italic.ttf" />
+		<None Remove="Resources\Roboto-Light.ttf" />
+		<None Remove="Resources\Roboto-Regular.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Remove="Styles\AnimationButtonStyle.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+		<PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
+		<PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="8.38.0.46746">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Files\Europe.png" />
+		<Resource Include="Resources\Files\Groceries.png" />
+		<Resource Include="Resources\Files\Profile.jpg" />
+		<Resource Include="Resources\Files\Profile1.jpg" />
+		<Resource Include="Resources\Files\Profile2.jpg" />
+		<Resource Include="Resources\Files\Profile3.jpg" />
+		<Resource Include="Resources\Files\Profile4.jpg" />
+		<Resource Include="Resources\Files\RevolutMetal.png" />
+		<Resource Include="Resources\Files\RevolutPremium.png" />
+		<Resource Include="Resources\Files\RevolutStandard.png" />
+		<Resource Include="Resources\Files\Romania.jpg" />
+		<Resource Include="Resources\Files\World-map.png" />
+		<Resource Include="Resources\Fonts\Roboto-Italic.ttf" />
+		<Resource Include="Resources\Fonts\Roboto-Light.ttf" />
+		<Resource Include="Resources\Fonts\Roboto-Regular.ttf" />
+		<Resource Include="Styles\AnimationButtonStyle.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Localization\Strings.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Strings.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Localization\Strings.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.VCRTForwarders.140" Version="1.0.7" />
+	</ItemGroup>
+
+</Project>

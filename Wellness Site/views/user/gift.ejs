@@ -1,0 +1,99 @@
+<%- layout('layout/boilerplate') %>
+<div class="container mt-3">
+    <div class="row justify-content-center mb-3 rounded">
+        <div class="col-md-10 p-0 bg-light">
+            <div class="row justify-content-center mx-2 p-2 mb-3">
+                <div class="col-xs-12 col-sm-10 col-lg-4  p-0">
+                    <table class="table table-striped border mt-3">
+                        <thead>
+                            <tr>
+                                <td colspan="2" class="text-center border-end">
+                                    <select class="form-select user-activity border-0">
+                                        <option selected value="Active">Active</option>
+                                        <option value="Sedentary">Sedentary</option>
+                                        <option value="Performance">Performance</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="text-center border-end">#</th>
+                                <th class="text-center">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="">
+                                <td class="border-end text-center align-middle">Magic number</th>
+                                <td class="text-center p-0 py-2 magic-number-value">
+                                    </th>
+                            </tr>
+                            <tr class="">
+                                <td class="border-end text-center align-middle">Proteins</td>
+                                <td class="text-center p-0 py-2">
+                                    <div class="border-bottom proteins-value-grams"></div>
+                                    <div class="proteins-value-kcal"></div>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td class="border-end text-center align-middle">Fats</td>
+                                <td class="text-center p-0 py-2">
+                                    <div class="border-bottom fats-value-grams"></div>
+                                    <div class="fats-value-kcal"></div>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td class="border-end text-center align-middle">Carbs</td>
+                                <td class="text-center p-0 py-2">
+                                    <div class="border-bottom carbs-value-grams"></div>
+                                    <div class="carbs-value-kcal"></div>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td class="border-end text-center align-middle">Hydration</td>
+                                <td class="text-center p-0 py-2 hydration-value"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Fibers</td>
+                                <td class="text-center">25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-lg-8 p-0">
+                    <div id="NoSupport"><strong>Sorry, your browser cannot render this correctly.</strong><br></div>
+                    <div id="Draw3dSphere" class="d-flex justify-content-center"></div>
+                </div>
+            </div>
+            <div class="row justify-content-center mx-2 p-3 mb-3">
+                
+                <h1 class="p-0 mb-5 text-center">Don't know what to eat? Create your plate with one click!</h1>
+                <div class="col-12 col-lg-6 p-0">
+                    <div class="col-12 p-0">
+                        <div class="iframe-div-think">
+                            <iframe class="" src="https://xd.adobe.com/embed/a9645363-2f07-40bf-9263-c678688c1f74-fc37/"
+                                frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 p-0 d-flex flex-column justify-content-center align-items-center">
+                    <div class="outer-container ">
+                         <p class="info-div m-0"><i class="fas fa-info-circle fa-info-circle-animation"></i></p>
+                        <div class="inner-container">
+                            <div class="food d-flex justify-content-end align-items-end">
+                               
+                            </div>
+                            <div class="food">
+                                
+                            </div>
+                            <div class="food">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success mt-3 generate-plate-btn">Create your plate!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

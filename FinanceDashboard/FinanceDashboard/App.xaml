@@ -1,0 +1,32 @@
+﻿<Application x:Class="FinanceDashboard.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:view="clr-namespace:FinanceDashboard.Views"
+             xmlns:vm="clr-namespace:FinanceDashboard.ViewModel"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <FontFamily x:Key="Roboto-Regular">.\Resources\Fonts\Roboto-Regular.ttf#Roboto Regular</FontFamily>
+            <FontFamily x:Key="FontAwesome">/Fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+            <FontFamily x:Key="Roboto-Bold">.\Resources\Fonts\Roboto-Bold.ttf#Roboto Bold</FontFamily>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary x:Name="AnimationButtonStyle" Source="Styles/AnimationButtonStyle.xaml"/>
+                <ResourceDictionary x:Name="NoAnimationButtonStyle" Source="Styles/NoAnimationButtonStyle.xaml"/>
+
+                <ResourceDictionary>
+                    <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
+                        <view:DashboardView/>
+                    </DataTemplate>
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+                    <DataTemplate DataType="{x:Type vm:PricingViewModel}">
+                        <view:PricingView/>
+                    </DataTemplate>
+                </ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

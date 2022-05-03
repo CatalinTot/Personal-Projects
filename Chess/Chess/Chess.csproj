@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+	<CodeAnalysisRuleSet>juniormind.ruleset</CodeAnalysisRuleSet>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Files\Buttons\AddFileButtonImage.png" />
+    <None Remove="Files\Buttons\BackwardButtonImage.png" />
+    <None Remove="Files\Buttons\Client.png" />
+    <None Remove="Files\Buttons\CogButtonImage.png" />
+    <None Remove="Files\Buttons\ConnectButtonImage.png" />
+    <None Remove="Files\Buttons\ForwardButtonImage.png" />
+    <None Remove="Files\Buttons\PlayButtonImage.png" />
+    <None Remove="Files\Buttons\ResetButtonImage.png" />
+    <None Remove="Files\Buttons\Server.png" />
+    <None Remove="Files\Buttons\ShutdownButtonImage.png" />
+    <None Remove="Files\Buttons\StopButtonImage.png" />
+    <None Remove="Files\Pieces\Bishop-dark.png" />
+    <None Remove="Files\Pieces\Bishop-white.png" />
+    <None Remove="Files\Pieces\King-black.png" />
+    <None Remove="Files\Pieces\King-white.png" />
+    <None Remove="Files\Pieces\Knight-black.png" />
+    <None Remove="Files\Pieces\Knight-white.png" />
+    <None Remove="Files\Pieces\Pawn-black.png" />
+    <None Remove="Files\Pieces\Pawn-white.png" />
+    <None Remove="Files\Pieces\Queen-black.png" />
+    <None Remove="Files\Pieces\Queen-white.png" />
+    <None Remove="Files\Pieces\Rook-black.png" />
+    <None Remove="Files\Pieces\Rook-white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.35.0.42613">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Files\Buttons\BackwardButtonImage.png" />
+    <Resource Include="Files\Buttons\Client.png" />
+    <Resource Include="Files\Buttons\CogButtonImage.png" />
+    <Resource Include="Files\Buttons\ForwardButtonImage.png" />
+    <Resource Include="Files\Buttons\PlayButtonImage.png" />
+    <Resource Include="Files\Buttons\AddFileButtonImage.png" />
+    <Resource Include="Files\Buttons\ResetButtonImage.png" />
+    <Resource Include="Files\Buttons\Server.png" />
+    <Resource Include="Files\Buttons\ShutdownButtonImage.png" />
+    <Resource Include="Files\Buttons\StopButtonImage.png" />
+    <Resource Include="Files\Pieces\Bishop-dark.png" />
+    <Resource Include="Files\Pieces\Bishop-white.png" />
+    <Resource Include="Files\Pieces\King-black.png" />
+    <Resource Include="Files\Pieces\King-white.png" />
+    <Resource Include="Files\Pieces\Knight-black.png" />
+    <Resource Include="Files\Pieces\Knight-white.png" />
+    <Resource Include="Files\Pieces\Pawn-black.png" />
+    <Resource Include="Files\Pieces\Pawn-white.png" />
+    <Resource Include="Files\Pieces\Queen-black.png" />
+    <Resource Include="Files\Pieces\Queen-white.png" />
+    <Resource Include="Files\Pieces\Rook-black.png" />
+    <Resource Include="Files\Pieces\Rook-white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Localization\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

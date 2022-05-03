@@ -1,0 +1,227 @@
+﻿<UserControl x:Class="FinanceDashboard.Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:FinanceDashboard.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" 
+             d:DesignWidth="270">
+    <UserControl.Resources>
+        <vm:MenuViewModel x:Key="MenuViewModel"/>
+    </UserControl.Resources>
+
+    <Border Background="#d5ccff"
+            CornerRadius="30"
+            DataContext="{StaticResource MenuViewModel}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="0.3*"></RowDefinition>
+                <RowDefinition Height="0.8*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Background="#8264FF"
+                    CornerRadius="30 30 0 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Ellipse Width="100"
+                             Height="100"
+                             StrokeThickness="4">
+
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="pack://application:,,,/FinanceDashboard;component/Resources/Files/Profile.jpg"
+                                        RenderOptions.BitmapScalingMode="HighQuality"/>
+                        </Ellipse.Fill>
+                        <Ellipse.Stroke>
+                            <RadialGradientBrush RadiusX="0.975" RadiusY="0.975">
+                                <GradientStop Color="#C79B34" Offset="0.495"></GradientStop>
+                                <GradientStop Color="#425C5A" Offset="0.48"></GradientStop>
+                            </RadialGradientBrush>
+                        </Ellipse.Stroke>
+                    </Ellipse>
+
+                    <TextBlock Text="TOT CATALIN"
+                               Grid.Row="1"
+                               Foreground="White"
+                               FontSize="35"
+                               FontFamily="{StaticResource Roboto-Regular}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="tot.catalin98@gmail.com"
+                               Grid.Row="2"
+                               Foreground="white"
+                               FontSize="17"
+                               FontFamily="{StaticResource Roboto-Regular}"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button Style="{StaticResource AnimationButtonStyle}"
+                        Content="Table"
+                        Margin="5"
+                        Tag="DASHBOARD"
+                        Background="#d5ccff"
+                        Foreground="White"
+                        IsDefault="True"
+                        CommandParameter="Dashboard"
+                        Command="{Binding ChangeCurrentViewCommand}"/>
+
+                <Button Style="{StaticResource AnimationButtonStyle}"
+                        Margin="5"
+                        Content="Money"
+                        Background="#d5ccff"
+                        Foreground="White"
+                        Tag="ACCOUNTS"
+                        IsDefault="True"
+                        Grid.Row="1"/>
+
+                <Button Style="{StaticResource AnimationButtonStyle}"
+                        Margin="5"
+                        Content="Tag"
+                        Background="#d5ccff"
+                        Foreground="White"
+                        Tag="PRICING"
+                        IsDefault="True"
+                        Grid.Row="2"
+                        CommandParameter="Pricing"
+                        Command="{Binding ChangeCurrentViewCommand}"/>
+
+                <Button Style="{StaticResource AnimationButtonStyle}"
+                        Margin="5"
+                        Content="PieChart"
+                        Tag="STATISTICS"
+                        Background="#d5ccff"
+                        Foreground="White"
+                        IsDefault="True"
+                        Grid.Row="3"/>
+
+                <Button Style="{StaticResource AnimationButtonStyle}"
+                        Margin="5"
+                        Content="LineChart"
+                        Tag="ACTIVITY"
+                        Background="#d5ccff"
+                        Foreground="White"
+                        IsDefault="True"
+                        Grid.Row="4"/>
+
+                <Button Style="{StaticResource AnimationButtonStyle}"
+                        Margin="5"
+                        Content="Gear"
+                        Background="#d5ccff"
+                        Foreground="White"
+                        Tag="SETTINGS"
+                        IsDefault="True"
+                        Grid.Row="5"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Ellipse Width="50"
+                         Height="50"
+                         StrokeThickness="3" Margin="26,8,194,9">
+
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="pack://application:,,,/FinanceDashboard;component/Resources/Files/Profile4.jpg"
+                                    RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </Ellipse.Fill>
+                    <Ellipse.Stroke>
+                        <RadialGradientBrush RadiusX="0.975" RadiusY="0.975">
+                            <GradientStop Color="White" Offset="0.48"></GradientStop>
+                        </RadialGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+
+                <Ellipse Width="50"
+                         Height="50"
+                         StrokeThickness="3" 
+                         Margin="63,8,157,9">
+
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="pack://application:,,,/FinanceDashboard;component/Resources/Files/Profile3.jpg"/>
+                    </Ellipse.Fill>
+                    <Ellipse.Stroke>
+                        <RadialGradientBrush RadiusX="0.975" RadiusY="0.975">
+                            <GradientStop Color="White" Offset="0.48"></GradientStop>
+                        </RadialGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+
+                <Ellipse Width="50"
+                         Height="50"
+                         StrokeThickness="3" 
+                         Margin="99,8,121,9">
+
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="pack://application:,,,/FinanceDashboard;component/Resources/Files/Profile2.jpg"/>
+                    </Ellipse.Fill>
+                    <Ellipse.Stroke>
+                        <RadialGradientBrush RadiusX="0.975" RadiusY="0.975">
+                            <GradientStop Color="White" Offset="0.48"></GradientStop>
+                        </RadialGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+
+                <Ellipse Width="50"
+                         Height="50"
+                         StrokeThickness="3" 
+                         Margin="135,8,85,9">
+
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="pack://application:,,,/FinanceDashboard;component/Resources/Files/Profile.jpg"
+                                    RenderOptions.BitmapScalingMode="HighQuality"/>
+                    </Ellipse.Fill>
+                    <Ellipse.Stroke>
+                        <RadialGradientBrush RadiusX="0.975" RadiusY="0.975">
+                            <GradientStop Color="White" Offset="0.48"></GradientStop>
+                        </RadialGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+
+                <Ellipse Width="50"
+                         Height="50"
+                         StrokeThickness="3" 
+                         Margin="172,8,48,9"
+                         Fill="#8264FF">
+                    <Ellipse.Stroke>
+                        <RadialGradientBrush RadiusX="0.975" RadiusY="0.975">
+                            <GradientStop Color="White" Offset="0.48"></GradientStop>
+                        </RadialGradientBrush>
+                    </Ellipse.Stroke>
+                </Ellipse>
+
+                <TextBlock Text="100+"
+                           FontSize="15"
+                           FontFamily="{StaticResource Roboto-Regular}"
+                           Width="50"
+                           Height="20"
+                           Foreground="White"
+                           TextAlignment="Center" Margin="172,24,48,24"/>
+            </Grid>
+
+            <Image Source="pack://application:,,,/FinanceDashboard;component/Resources/Files/World-map.png"
+                   RenderOptions.BitmapScalingMode="HighQuality"
+                   Grid.Row="3"
+                   Margin="10"/>
+
+
+        </Grid>
+    </Border>
+</UserControl>

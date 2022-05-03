@@ -1,0 +1,184 @@
+<%- layout('layout/boilerplate') %>
+
+<h1 class="text-center">Welcome to results page</h1>
+
+<div class="container">
+    <% if(results.length != 0){ %>
+        <div class="row d-flex flex-column justify-content-center align-items-center results-row">
+            <div class="col-md-8 col-lg-10 p-3 d-flex flex-wrap justify-content-center  justify-content-xl-between">
+                <% results.forEach((result,i)=>{ %>
+                <% if(i%2===0){ %>
+                <div data-aos="fade-up-right" data-aos-duration="1000" class="card bg-light mb-5"
+                    style="width: min-content;">
+                    <div class='img-container d-flex flex-column align-middle'>
+                        <div class="edit-delete-buttons-div d-flex">
+                            <a id="<%= result._id %>" class="edit-btn" data-bs-toggle="modal"
+                                data-bs-target="#imageEditModal"><i class="far fa-edit"></i></a>
+                            <a id="<%= result._id %>" class="delete-btn" data-bs-toggle="modal"
+                                data-bs-target="#imageDeleteModal"><i class="far fa-trash-alt"></i></a>
+                        </div>
+                        <div style="background-image: url('<%= result.images[0].url %>');" class='img background-img'></div>
+                        <div style="background-image: url('<%= result.images[1].url %>');" class='img foreground-img'></div>
+                        <input type="range" min="1" max="100" value="50" class="slider" name='slider'>
+                        <div class='slider-button'></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= result.surname %> </h5>
+                        <span class="d-flex">Result <p class="card-text mb-1 ms-1"><%= result.result %> </p></span>
+                        <span class="d-flex">Age <p class="card-text mb-1 ms-1"><%= result.age %> </p></span>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+                <% }else{ %>
+                <div data-aos="fade-up-left" data-aos-duration="1000" class="card bg-light mb-5"
+                    style="width: min-content;">
+                    <div class='img-container d-flex flex-column align-middle'>
+                        <div class="edit-delete-buttons-div d-flex">
+                            <a id="<%= result._id %>" class="edit-btn" data-bs-toggle="modal"
+                                data-bs-target="#imageEditModal"><i class="far fa-edit"></i></a>
+                            <a id="<%= result._id %>" class="delete-btn" data-bs-toggle="modal"
+                                data-bs-target="#imageDeleteModal"><i class="far fa-trash-alt"></i></a>
+                        </div>
+                        <div style="background-image: url('<%= result.images[0].url %>');" class='img background-img'></div>
+                        <div style="background-image: url('<%= result.images[1].url %>');" class='img foreground-img'></div>
+                        <input type="range" min="1" max="100" value="50" class="slider" name='slider'>
+                        <div class='slider-button'></div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= result.surname %> </h5>
+                        <span class="d-flex">Result <p class="card-text mb-1 ms-1"><%=result.result %> </p></span>
+                        <span class="d-flex">Age <p class="card-text mb-1 ms-1"><%= result.age %> </p></span>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+                <% } %>
+                <% }) %>
+            </div>
+        </div>
+    <% } %> 
+    
+
+    <div class="col-md-8 col-lg-10 p-0 m-auto">
+        <div class="">
+            <a class="btn btn-primary w-auto" data-bs-toggle="modal" data-bs-target="#imageUploadModal">Add
+                new!</a>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="imageUploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Profile image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form novalidate class="needs-validation" action="/results" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <label for="name" class="form-label">Name</label>
+                    <div class="input-group mb-3">
+                        <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                        <input required type="text" class="form-control" id="result-name" name="result[surname]" value="Catalin">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="age" class="form-label">Age</label>
+                    <div class="input-group mb-3">
+                        <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                        <input required type="number" class="form-control" id="result-age" name="result[age]" value="18">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="result" class="form-label">Result</label>
+                    <div class="input-group mb-3">
+                        <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                        <input required type="text" class="form-control" id="result-result" name="result[result]" value="-2kg">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="image" class="form-label">Select images</label>
+                    <div class="input-group">
+                        <input required type="file" class="form-control result-input-file-create"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image" multiple>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" disabled>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imageEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit result</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form novalidate class="needs-validation" id="result-edit-form" action="" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <label for="name" class="form-label">Name</label>
+                    <div class="input-group mb-3">
+                        <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                        <input required type="text" class="form-control" id="result-edit-name" name="result[surname]" value="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="age" class="form-label">Age</label>
+                    <div class="input-group mb-3">
+                        <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                        <input required type="number" class="form-control" id="result-edit-age" name="result[age]" value="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="result" class="form-label">Result</label>
+                    <div class="input-group mb-3">
+                        <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                        <input required type="text" class="form-control" id="result-edit-result" name="result[result]" value="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="image" class="form-label">Select images (only 2)</label>
+                    <div class="input-group">
+                        <input type="file" class="form-control result-input-file-edit"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image" multiple>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" disabled>Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="imageDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title delete-modal-title" id="exampleModalLabel">Warning!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="result-delete-form" action="" method="POST" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <p>This process cannot be reversed!</p>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger">Proceed</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

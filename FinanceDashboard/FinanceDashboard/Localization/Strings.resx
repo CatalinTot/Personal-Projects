@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Countries" xml:space="preserve">
+    <value>[
+   {
+      "Balance":"69.69",
+      "Abreviation":"RON",
+      "Symbol":"pack://application:,,,/FinanceDashboard;component/Resources/Files/Romania.jpg",
+      "Code":"RO",
+      "Name":"Romanian Leu",
+      "Transactions":[
+         {
+            "Symbol":"pack://application:,,,/FinanceDashboard;component/Resources/Files/Groceries.png",
+            "VendorName":"Magazin Mixt",
+            "Date":"2019-07-26T00:00:00",
+            "Price":"2.50"
+         }
+      ],
+      "NearbyRewards":[
+         {
+            "Latitude":47.38022361000011,
+            "Longitude":22.894775654414623
+         },
+         {
+            "Latitude":47.34716403590298,
+            "Longitude":22.82586069733985
+         },
+         {
+            "Latitude":47.380883139821066,
+            "Longitude":22.769899092998344
+         }
+      ],
+      "Spendings":[
+         {
+            "Value":2
+         },
+         {
+            "Value":2
+         },
+         {
+            "Value":3
+         },
+         {
+            "Value":4
+         },
+         {
+            "Value":5
+         },
+         {
+            "Value":6
+         },
+         {
+            "Value":6
+         },
+         {
+            "Value":6
+         },
+         {
+            "Value":12
+         },
+         {
+            "Value":13
+         },
+         {
+            "Value":15
+         },
+         {
+            "Value":10
+         },
+         {
+            "Value":20
+         },
+         {
+            "Value":22
+         },
+         {
+            "Value":22
+         },
+         {
+            "Value":22
+         }
+      ],
+      "PortofolioItems":[
+         {
+            "Title":"Cash",
+            "Values":[
+               {
+                  "Value":45
+               }
+            ],
+            "DataLabels":true
+         },
+         {
+            "Title":"Crypto",
+            "Values":[
+               {
+                  "Value":25
+               }
+            ],
+            "DataLabels":true
+         },
+         {
+            "Title":"Stocks",
+            "Values":[
+               {
+                  "Value":25
+               }
+            ],
+            "DataLabels":true
+         },
+         {
+            "Title":"Others",
+            "Values":[
+               {
+                  "Value":5
+               }
+            ],
+            "DataLabels":true
+         }
+      ]
+   },
+   {
+      "Balance":"09.57",
+      "Abreviation":"EUR",
+      "Symbol":"pack://application:,,,/FinanceDashboard;component/Resources/Files/Europe.png",
+      "Code":"EU",
+      "Name":"Euro",
+      "Transactions":[
+         {
+            "Symbol":"pack://application:,,,/FinanceDashboard;component/Resources/Files/Groceries.png",
+            "VendorName":"Magazin Mixt",
+            "Date":"2019-07-26T00:00:00",
+            "Price":"2.50"
+         }
+      ],
+      "NearbyRewards":[
+         {
+            "Latitude":44.414864576351576,
+            "Longitude":26.262178124568205
+         },
+         {
+            "Latitude":44.12378864161718,
+            "Longitude":28.53634786173474
+         },
+         {
+            "Latitude":47.067048001211845,
+            "Longitude":27.646455355886964
+         }
+      ],
+      "Spendings":[
+         {
+            "Value":5
+         },
+         {
+            "Value":2
+         },
+         {
+            "Value":3
+         },
+         {
+            "Value":4
+         },
+         {
+            "Value":5
+         },
+         {
+            "Value":6
+         },
+         {
+            "Value":6
+         },
+         {
+            "Value":6
+         },
+         {
+            "Value":1
+         },
+         {
+            "Value":13
+         },
+         {
+            "Value":20
+         },
+         {
+            "Value":20
+         },
+         {
+            "Value":20
+         },
+         {
+            "Value":20
+         },
+         {
+            "Value":20
+         },
+         {
+            "Value":30
+         }
+      ],
+      "PortofolioItems":[
+         {
+            "Title":"Cash",
+            "Values":[
+               {
+                  "Value":10
+               }
+            ],
+            "DataLabels":true
+         },
+         {
+            "Title":"Crypto",
+            "Values":[
+               {
+                  "Value":10
+               }
+            ],
+            "DataLabels":true
+         },
+         {
+            "Title":"Stocks",
+            "Values":[
+               {
+                  "Value":10
+               }
+            ],
+            "DataLabels":true
+         },
+         {
+            "Title":"Others",
+            "Values":[
+               {
+                  "Value":70
+               }
+            ],
+            "DataLabels":true
+         }
+      ]
+   }
+]</value>
+  </data>
+  <data name="Plans" xml:space="preserve">
+    <value>[
+   {
+      "Title":"Standard",
+      "Subtitle":"Free",
+      "Image":"pack://application:,,,/FinanceDashboard;component/Resources/Files/RevolutStandard.png",
+      "Description":"Whether you're looking to save money spending abroad or sticking to your budget with our built-in budgeting, get more from your money with our Standard account.",
+      "Cardcolor":"#836DBA",
+      "Benefits":[
+         {
+            "Icon":"Money",
+            "Explanation":"No fee ATM withdrawals within limits",
+            "Status":"£200/m or 5x"
+         },
+         {
+            "Icon":"CreditCard",
+            "Explanation":"Personalised cards. Fees apply",
+            "Status":"True"
+         },
+         {
+            "Icon":"Copyright",
+            "Explanation":"Exclusive Revolut Metal card",
+            "Status":"False"
+         },
+         {
+            "Icon":"ArrowRight",
+            "Explanation":"Fee-free international payments *",
+            "Status":"False"
+         },
+         {
+            "Icon":"Suitcase",
+            "Explanation":"Revolut Junior accounts",
+            "Status":"False"
+         },
+         {
+            "Icon":"Suitcase",
+            "Explanation":"Full access to Junior features",
+            "Status":"False"
+         },
+         {
+            "Icon":"Truck",
+            "Explanation":"Free card delivery",
+            "Status":"False"
+         },
+         {
+            "Icon":"QuestionCircle",
+            "Explanation":"24/7 priority customer support",
+            "Status":"False"
+         },
+         {
+            "Icon":"Shield",
+            "Explanation":"Daily interest on GBP savings",
+            "Status":"Up to 0.45% AER"
+         },
+         {
+            "Icon":"Shield",
+            "Explanation":"Daily interest on USD savings",
+            "Status":"False"
+         }
+      ]
+   },
+   {
+      "Title":"Plus",
+      "Subtitle":"3$/ month",
+      "Image":"pack://application:,,,/FinanceDashboard;component/Resources/Files/RevolutStandard.png",
+      "Description":"Don’t let uncertain times stop you from living your best life. Upgrade to Plus to give your wallet and your confidence a boost.",
+      "Cardcolor":"#0E5EAF"
+   },
+   {
+      "Title":"Premium",
+      "Subtitle":"6$/ month",
+      "Image":"pack://application:,,,/FinanceDashboard;component/Resources/Files/RevolutPremium.png",
+      "Description":"Get more with our Premium account: higher limits, boosted Junior access, airport lounge access and much more.",
+      "Cardcolor":"#4D4E51"
+   },
+   {
+      "Title":"Metal",
+      "Subtitle":"11$/ month",
+      "Image":"pack://application:,,,/FinanceDashboard;component/Resources/Files/RevolutMetal.png",
+      "Description":"Our most powerful account offers all our Premium functionality, plus so much more.",
+      "Cardcolor":"#191C1F"
+   }
+]</value>
+  </data>
+</root>

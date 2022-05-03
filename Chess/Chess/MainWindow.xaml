@@ -1,0 +1,138 @@
+﻿<Window x:Class="Chess.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chess.Views"
+        xmlns:vm="clr-namespace:Chess.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="550" 
+        Width="950"
+        x:Name="ChessWindow"
+        WindowStartupLocation="Manual"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Window.Resources>
+        <vm:MainWindowViewModel x:Key="MainWindowViewModel"/>
+    </Window.Resources>
+
+    <Grid DataContext="{StaticResource MainWindowViewModel}">
+        <Border Background="White"
+                CornerRadius="15"/>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="600"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="450"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.ColumnSpan="3"
+                     Grid.Column="1"
+                     BorderThickness="0"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     FontSize="15"
+                     Text="{Binding CurrentFile, UpdateSourceTrigger=PropertyChanged}"
+                     IsReadOnly="True"/>
+
+            <Border Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Background="#303030"
+                BorderBrush="Black"
+                BorderThickness="1"
+                CornerRadius="15">
+
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30"
+                                  Color="#5C5C5C"
+                                  Direction="0"
+                                  RenderingBias="Quality"
+                                  Opacity="0.9"/>
+                </Border.Effect>
+
+            </Border>
+
+            <local:ControlMenuView x:Name="ControlsView"
+                                   Grid.Row="1"
+                                   Grid.Column="1" 
+                                   IsEnabled="{Binding ControlMenuAvailability}"/>
+
+            <local:ChessGridView Grid.Row="1"
+                             Grid.Column="2" 
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"/>
+
+            <local:PlayerPiecesView Grid.Row="1"
+                              Grid.Column="2" 
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"/>
+
+
+            <local:RelocationsGridView Grid.Row="1"
+                              Grid.Column="3"
+                              Margin="0,10,10,10"/>
+
+            <Button Grid.Column="4"
+                Style="{StaticResource ShutDownButtonStyle}"
+                Command="{Binding CloseAppCommand}"
+                CommandParameter="{Binding ElementName=ChessWindow}"/>
+            
+            <Grid Grid.Row="2"
+                  Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="{Binding UserInteractions}"
+                     FontSize="25"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     Grid.Column="0"/>
+
+                <Ellipse Grid.Column="1"
+                         Width="40"
+                         Height="40"
+                         Stroke="Black"
+                         StrokeThickness="3"
+                         RenderTransformOrigin="0.5 0.5"
+                         StrokeDashArray="23 10"
+                         Visibility="{Binding BufferVisibilty}">
+                    <Ellipse.RenderTransform>
+                        <RotateTransform x:Name="Rotation" Angle="0"></RotateTransform>
+                    </Ellipse.RenderTransform>
+                    <Ellipse.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard RepeatBehavior="Forever">
+                                    <DoubleAnimation Storyboard.TargetName="Rotation"
+                                                     Storyboard.TargetProperty="Angle"
+                                                     From="0" To="360"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Ellipse.Triggers>
+                </Ellipse>
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+
+</Window>

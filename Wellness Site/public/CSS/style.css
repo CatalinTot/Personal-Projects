@@ -1,0 +1,966 @@
+/* ----------------- Home page styling ------------------- */
+/* home page body */
+.home-body {
+    background: #000;
+}
+
+/* welcome message and call to action button */
+.home-content,
+.home-navbar div {
+    z-index: 1;
+    /* should be over any content so we can click on */
+}
+
+/* animation for home navbar */
+.home-navbar div {
+    transform: translateY(-50px);
+    animation: ease-in-out 1.5s forwards navbar;
+}
+
+/* style the logo image on the home page */
+.logo-image {
+    cursor: pointer;
+    width: 120px;
+}
+
+/* the animation for the home navbar */
+@keyframes navbar {
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* the welcome message color */
+.home-content h1 {
+    color: #fff;
+}
+
+/* welcome message and button div */
+.home-content {
+    position: absolute;
+    width: 50%;
+    bottom: 50%;
+    left: 25%;
+    transform: translateX(-200vh);
+    animation: ease-in-out 2.5s forwards home-content;
+}
+
+/* home content animation */
+@keyframes home-content {
+    from {
+        transform: translateX(-200vh);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* the slideshow image on the home page */
+.slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite;
+}
+
+/* each list element has one background photo and are 
+displayed with a delay */
+.slideshow li:nth-child(1) {
+    background-image: url(https://images.unsplash.com/photo-1599058917212-d750089bc07e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8d29ya291dHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60)
+}
+
+.slideshow li:nth-child(2) {
+    background-image: url(https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 10s;
+}
+
+.slideshow li:nth-child(3) {
+    background-image: url(https://images.unsplash.com/photo-1483721310020-03333e577078?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fHdvcmtvdXR8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 20s;
+}
+
+.slideshow li:nth-child(4) {
+    background-image: url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 30s;
+}
+
+.slideshow li:nth-child(5) {
+    background-image: url(https://images.unsplash.com/photo-1526401485004-46910ecc8e51?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NzZ8fGd5bXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+    animation-delay: 40s;
+}
+
+/* the slideshow animation */
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+
+    10% {
+        opacity: 0.7;
+        animation-timing-function: ease-out;
+    }
+
+    20% {
+        opacity: 0.7
+    }
+
+    30% {
+        opacity: 0
+    }
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+    opacity: 0.7;
+}
+
+
+/* ------------------------------- About page style ----------------------- */
+/* the container when the iframes are situated */
+.iframe-div {
+    width: 100%;
+    height: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* the Adobe iframe itself */
+iframe {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+/* the line that separates the login and register columns on about page */
+@media(min-width:992px) {
+    .about-form-div {
+        border-right: .5px solid lightgray;
+    }
+}
+
+/* --------------------- e-mail send page ----------------------------*/
+
+.iframe-div-sent {
+    width: 100%;
+    height: 80vh;
+    padding: 10px;
+    background-color: white;
+}
+
+/* ------------------------------- subscription plan page -----------------*/
+.body {
+    min-height: 90vh;
+}
+
+/* the two subscription images */
+.subscription-image {
+    height: 200px;
+}
+
+/* plans features */
+.plan-features {
+    color: white;
+    font-weight: 500;
+}
+
+/* check sign */
+.fa-check {
+    color: green;
+}
+
+/* X sign */
+.fa-times {
+    color: red;
+}
+
+/* ---------------------------- register page------------------------------ */
+/* user icon */
+.fa-user-icon {
+    font-size: 4em;
+}
+
+/* user icon container */
+.user-icon {
+    width: 125px;
+    height: 125px;
+    background-color: rgb(212, 212, 212);
+    border-radius: 50%;
+}
+
+/*-------------------account validation page styling-------------------- */
+
+.iframe-div-check-email {
+    width: 100%;
+    height: 550px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* ------------------------ profile page styling------------------------- */
+/* the container with the profile image */
+.profile-image-div {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    min-height: fit-content;
+}
+
+/* the inner container of the profile image */
+.profile-image {
+    height: 190px;
+    width: 190px;
+}
+
+/* the borders that separates the user details */
+.details-border {
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+}
+
+/* make the details of the user responsive */
+@media(max-width:768px) {
+    .details-border {
+        border-left: none;
+        border-right: none;
+    }
+}
+
+/* edit profile button */
+.edit-button {
+    width: max-content;
+}
+
+/* --------------------------- edit page-------------------------- */
+.user-icon-user{
+    width: 150px;
+    height: 150px;
+    background-color: rgba(122, 122, 122, 0.603);
+    border-radius: 50%;
+}
+/* the div containing the profile picture on the edit page */
+.user-icon{
+    background-color: rgba(122, 122, 122, 0.603);
+    width: 160px;
+    height: 160px;
+}
+/* the picture of the user in the edit page */
+.edit-profile-image{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+/* the image on the edit page */
+.edit-image-div {
+    border-right: 1px solid #dee2e6;
+}
+
+@media(max-width:768px) {
+    .edit-image-div {
+        border: none;
+    }
+}
+
+/* ---------------------------- contact page ----------------------*/
+/* the send button on te contact page */
+.contact-button {
+    background-color: #6C63FF;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: white;
+    transition: background .3s ease-in-out;
+}
+
+/* slightly change the color when hover over button */
+.contact-button:hover {
+    background-color: #5a51ff;
+}
+
+/* h1 on the contact page */
+.contact-text {
+    color: #6C63FF;
+}
+
+/* ------------------------------ chat styling ---------------------------*/
+/* live chat div */
+.chat-div {
+    width: 300px;
+    height: 50px;
+    background-color: #6C63FF;
+    position: fixed;
+    bottom: 0px;
+    right: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+/* the div where all the messages are displayed */
+.messages-area {
+    width: 280px;
+    height: 100px;
+    background-color: white;
+    border-radius: 5px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+/* the container where the send button and the text box are */
+.type-div {
+    display: flex;
+    width: 280px;
+}
+
+/* the text box where the user types the messages */
+.message-input {
+    width: 100%
+}
+
+/* the message sent by the users */
+.message {
+    color: black;
+}
+
+/* the username */
+.username {
+    font-weight: bold;
+}
+
+/* the heigth of the area where the messages are displayed */
+.chat-heigth {
+    height: 200px;
+}
+
+/* the open-close chat toggles */
+.fa-arrow-up {
+    transition: all .3s ease-in-out;
+}
+
+/* rotate arrow when you open or close the chat */
+.rotate-arrow {
+    transform: rotate(180deg);
+}
+
+/*-------------------------- Sphere styling and gift page------------------- */
+.info-div{
+    position: relative;
+    /* bottom: 0; */
+    right: -35%;
+    
+}
+
+.fa-info-circle{
+    font-size: 1.2em;
+    position:absolute;
+}
+
+.info-div .fa-info-circle-animation{
+    
+    transform: translateY(5px);
+    animation: 1s ease-in-out infinite alternate animInfo;
+    transform-origin: center;
+}
+
+@keyframes animInfo {
+    from {
+        transform:translateY(5px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
+/* food images inside the sphere columns */
+.food-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+/* Error message for the browsers that do not support the sphere */
+#NoSupport {
+    display: none;
+    width: 50%;
+    margin: 1em auto;
+    padding: 1em;
+    border: 1px solid red;
+}
+
+/* the schene where the sphere is drawn */
+.scene {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* the sphere itself */
+.scene .sphere {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.scene .container {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transition: -webkit-transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s, -webkit-transform 1s ease-in-out 0s;
+}
+/* rotate Y animation */
+.rotateY {
+    -webkit-animation: rotateY 25s infinite linear;
+    animation: rotateY 25s infinite linear;
+}
+/* rotate X animation */
+.rotateX {
+    -webkit-animation: rotateX 25s infinite linear;
+    animation: rotateX 25s infinite linear;
+}
+/* rotate Z animation */
+.rotateZ {
+    -webkit-animation: rotateZ 25s infinite linear;
+    animation: rotateZ 25s infinite linear;
+}
+
+.translateZ.rotateY {
+    -webkit-animation: translateZ, rotateY 25s 0.5s infinite linear;
+    animation: translateZ, rotateY 25s 0.5s infinite linear;
+}
+
+/* animation that rotates the sphere on Y axis for opera browser*/
+@-webkit-keyframes rotateY {
+    from {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+/* animation that rotates the sphere on Y axis*/
+@keyframes rotateY {
+    from {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+/* animation that rotates the sphere on X axis for opera browser*/
+@-webkit-keyframes rotateX {
+    from {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateX(360deg);
+        transform: rotateX(360deg);
+    }
+}
+
+/* animation that rotates the sphere on X axis*/
+@keyframes rotateX {
+    from {
+        -webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateX(360deg);
+        transform: rotateX(360deg);
+    }
+}
+
+/* animation that rotates the sphere on Z axis for opera browser*/
+@-webkit-keyframes rotateZ {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+/* animation that rotates the sphere on Z*/
+@keyframes rotateZ {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+@-webkit-keyframes translateZ {
+    0% {
+        -webkit-transform: translateZ(-1000px);
+        transform: translateZ(-1000px);
+    }
+
+    70% {
+        -webkit-transform: translateZ(20px);
+        transform: translateZ(20px);
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+@keyframes translateZ {
+    0% {
+        -webkit-transform: translateZ(-1000px);
+        transform: translateZ(-1000px);
+    }
+
+    70% {
+        -webkit-transform: translateZ(20px);
+        transform: translateZ(20px);
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* pause the sphere animation */
+.paused {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+/* the column of the sphere */
+.sphere-column {
+    position: absolute;
+    display: table;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    transition: -webkit-transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s;
+    transition: transform 1s ease-in-out 0s, -webkit-transform 1s ease-in-out 0s;
+}
+
+/* the content in each of the sphere column */
+.sphere-column .column-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    color: #000000;
+}
+/* ---------------- Think about what to eat iframe ---------------------- */
+.iframe-div-think {
+    width: 100%;
+    height: 400px;
+}
+
+.food-image {
+    width: 200px;
+    height: 200px;
+}
+
+@media(max-width:1140px) {
+    .iframe-div-think {
+        height: 300px;
+    }
+}
+
+/* ----------------------- healthy plate styling-------------------------- */
+
+.outer-container {
+    width: 400px;
+    height: 400px;
+    background: url("https://previews.123rf.com/images/gjee/gjee1806/gjee180600024/104618918-simple-pattern-background-outline-of-variety-food-icon-on-white-background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+}
+
+.inner-container {
+    width: 300px;
+    height: 300px;
+    background-color: #f7f7f7;
+    border-radius: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
+}
+
+/* make the plate responsive */
+@media(max-width:1200px) and (min-width:992px) {
+    .outer-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .inner-container {
+        width: 230px;
+        height: 230px;
+    }
+}
+
+/* food container */
+.food {
+    display: flex;
+}
+
+/* the proteins div */
+.food:first-of-type {
+    border-top: none;
+    border-left: none;
+    background: url("https://res.cloudinary.com/dzainyxbb/image/upload/v1616763292/Wellness/Protein/Turkey_leg_zakecy.png");
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-position: center bottom;
+    border-bottom: 1px dashed black;
+    border-right: 1px dashed black;
+}
+
+/* the carbs div */
+.food:nth-of-type(2) {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    background: url("https://res.cloudinary.com/dzainyxbb/image/upload/v1614617904/Wellness/Carbs/Daco_4158354_mvrv3v.png");
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-position: left 12px bottom 5px;
+    border-bottom: 1px dashed black;
+}
+
+/* the vegetables div */
+.food:last-of-type {
+    grid-column: 1/3;
+    border: none;
+    margin: 0 auto;
+    width: 50%;
+    background: url("https://res.cloudinary.com/dzainyxbb/image/upload/v1616766729/Wellness/Vegetables/Brocolli_bhadeu.png");
+    background-repeat: no-repeat;
+    background-size: 70% 70%;
+    background-position: center;
+
+}
+
+/* ----------------------- before and after image---------------------- */
+
+/* the two images container */
+.img-container {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    border: 2px solid white;
+}
+
+/* the before and after image */
+.img-container .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 400px 100%;
+}
+
+/* the forground image */
+.img-container .foreground-img {
+    width: 50%;
+}
+
+/* the slider  */
+.img-container .slider {
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(242, 242, 242, 0.3);
+    outline: none;
+    margin: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: rgba(242, 242, 242, 0.1);
+}
+/* styling the slider for opera browsers */
+.img-container .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 6px;
+    height: 450px;
+    background: white;
+    cursor: pointer;
+}
+
+.img-container .slider::-moz-range-thumb {
+    width: 6px;
+    height: 600px;
+    background: white;
+    cursor: pointer;
+}
+
+/* the center button of the slider */
+.img-container .slider-button {
+    pointer-events: none;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    left: calc(50% - 18px);
+    top: calc(50% - 18px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.img-container .slider-button:after {
+    content: '';
+    padding: 3px;
+    display: inline-block;
+    border: solid #5D5D5D;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.img-container .slider-button:before {
+    content: '';
+    padding: 3px;
+    display: inline-block;
+    border: solid #5D5D5D;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+/* the divs containing the delete and edit buttons */
+.edit-delete-buttons-div {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+/* edit and delete results buttons */
+.edit-btn,
+.delete-btn {
+    color: black;
+    position: relative;
+    z-index: 1;
+    padding: 0 2px;
+    border: none;
+}
+
+/* change the color when hover over the delete and edit button */
+.edit-btn:hover,
+.delete-btn:hover {
+    color: black;
+    cursor: pointer;
+}
+
+/* make the edit button orange when hover over */
+.fa-edit:hover {
+    color: orange;
+    transition: .5s ease-in-out;
+}
+
+/* make the delete button red when hover over */
+.fa-trash-alt:hover {
+    color: red;
+    transition: .5s ease-in-out;
+}
+
+/* security question when delete the result */
+.delete-modal-title {
+    color: red;
+}   
+
+
+/* plate chat */
+
+.plate-chat{
+    position: absolute;
+}
+.inner-plate-chat{
+    background-color: #f8f9fa;
+    position: relative;
+    width: 200px;
+    height: 250px;
+    right: -400px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-plate-text-area{
+    
+    width: 180px;
+    height: 230px;
+    border-radius: 5px;
+    background-color: white;
+}
+.each-user-area{
+    flex: 1;
+    display: flex;
+}
+
+.plate-chat-user-message{
+    flex: 3;
+}
+
+.plate-chat-user-icon{
+    flex: 1;
+}
+
+/* plus button on progress page */
+.fa-plus-square,.fa-pen-square,.fa-trash{
+    cursor: pointer;
+}
+
+.fa-pen-square:hover{
+    color: orange;
+    transition: all .2s ease-in-out;
+}
+.fa-trash:hover{
+    color: red;
+    transition: all .2s ease-in-out;
+}
+
+.scrollable-table{
+    max-height: 500px;
+}
+
+.register-container{
+    display: none;
+    transform: translateX(400px);
+    opacity: 0;
+}
+
+@keyframes planAnimationFadeOut{
+    from{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+}
+
+@keyframes registerAnimationFadeIn{
+    from{
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes planAnimationFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes registerAnimationFadeOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}

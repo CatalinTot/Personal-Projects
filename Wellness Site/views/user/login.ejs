@@ -1,0 +1,36 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div data-aos="flip-left" data-aos-duration="1000"
+            class="col-8 col-md-6 col-lg-4 col-xl-3 bg-light rounded p-3 shadow">
+            <div class="m-auto my-3 user-icon-user d-flex justify-content-center align-items-center">
+                <i class="fas fa-user fa-user-icon"></i>
+            </div>
+            <form class="needs-validation" action="/login" method="POST" novalidate>
+                <label for="e-mail" class="form-label">E-mail</label>
+                <div class="input-group mb-3">
+                    <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                    <input type="e-mail" class="form-control" id="e-mail" name="username" value="tot.catalin98@gmail.com" required >
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group mb-3">
+                    <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span> -->
+                    <input type="password" class="form-control" id="password" name="password" value="parola" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="">
+                    <button class="btn btn-primary">Login</button>
+                </div>
+                <div class="mt-2">
+                    <a href="/login/forgot">Forgot your password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

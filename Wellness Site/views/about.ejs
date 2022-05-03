@@ -1,0 +1,134 @@
+<%- layout('layout/boilerplate') %>
+<div class="container mb-2">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-10">
+            <div data-aos="fade-up" data-aos-duration="1000" class="my-4 p-3 rounded bg-light shadow">
+                <h1 class="text-center">Our concept</h1>
+                <hr>
+                <p class="text-center">Combine the nutrition and sports with 100% attitude to reach your fitness goals!
+                </p>
+                <div class="text-center fs-2">
+                    <i class="fas fa-apple-alt"></i>
+                    <i class="fas fa-running mx-2"></i>
+                    <i class="fas fa-trophy"></i>
+                </div>
+            </div>
+            <div class="bg-light rounded shadow">
+                <div class="row m-1">
+                    <div data-aos="fade-rigth" data-aos-duration="1000" class="col-lg-6 mt-3">
+                        <div class="iframe-div">
+                            <iframe src="https://xd.adobe.com/embed/9244197b-14c5-4abc-9de4-ff36db315c48-c717/"
+                                frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-duration="1000" class="col-lg-6 d-flex align-items-center">
+                        <div class="d-flex flex-column px-1 py-5 p-sm-5 p-lg-3">
+                            <i class="fas fa-apple-alt text-center fs-2 my-2"></i>
+                            <hr class="w-75 align-self-center">
+                            <h2 class="text-center">80% Nutrition</h2>
+                            <p class="p-3 m-0 text-center">Our main purpose is not to send you in the gym and sweat
+                                every day to grow muscle, but to teach you, that most of the muscles are grown in the
+                                kitchen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-1 my-lg-5">
+                    <div data-aos="fade-rigth" data-aos-duration="1000" class="col-lg-6 order-lg-2">
+                        <div>
+                            <div class="iframe-div">
+                                <iframe src="https://xd.adobe.com/embed/b2fd788e-ea63-47af-b22f-dd8b81a9489f-e7ae/"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-duration="1000"
+                        class="col-lg-6 d-flex align-items-center order-lg-1">
+                        <div class="d-flex flex-column px-1 py-5 p-sm-5 p-lg-3">
+                            <i class="fas fa-running text-center fs-2 my-2"></i>
+                            <hr class="w-75 align-self-center">
+                            <h2 class="text-center">20% Sports</h2>
+                            <p class="p-3 m-0 text-center ">We didn’t say the sport is not important, we said just you
+                                don’t have to move the mountains every day, but we are waiting for you to join us in our
+                                FIT classes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-1">
+                    <div data-aos="fade-rigth" data-aos-duration="1000" class="col-lg-6 mb-3">
+                        <div>
+                            <div class="iframe-div">
+                                <iframe width="1920" height="1080"
+                                    src="https://xd.adobe.com/embed/7ff81333-0a0a-494e-8289-fc8dfbe9c56e-2aab/"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-duration="1000" class="col-lg-6 d-flex align-items-center">
+                        <div class="d-flex flex-column px-1 py-5 p-sm-5 p-lg-3">
+                            <i class="fas fa-trophy text-center fs-2 my-2"></i>
+                            <hr class="w-75 align-self-center">
+                            <h2 class="text-center">100% Attitude</h2>
+                            <p class="p-3 m-0 text-center ">It’s not enough to eat and train, because you become what
+                                you want to become, you will need a good attitude about yourself and your wellness goals
+                                everyday.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if(!currentUser){ %>
+            <div class="my-4 p-3 rounded bg-light shadow">
+                <div data-aos="fade-up" data-aos-duration="1000" class="row">
+                    <div class="col-12 col-lg-6 d-flex flex-column justify-content-center about-form-div">
+                        <form novalidate action="/login" method="POST" class="w-75 py-1 pb-3 m-auto needs-validation">
+                            <label for="email" class="form-label">Email address</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                <input required type="text" class="form-control" id="email" name="username">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+                                <input required type="password" class="form-control" id="password" name="password">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <button class="btn btn-success w-50 m-auto">Login</button>
+                            </div>
+                        </form>
+                        <a class="text-center d-inline d-lg-none" href="/register">Don't have an account?</a>
+                    </div>
+                    <div class="col-12 col-lg-6 d-none d-lg-flex justify-content-center">
+                        <div class="d-flex align-items-center mt-3 w-75 justify-content-center">
+                            <button class="btn btn-primary w-50">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <% if(visitor){ %> 
+            <div class="my-4 p-3 rounded bg-light shadow">
+                <div data-aos="fade-up" data-aos-duration="1000" class="row">
+                    <div class="p-3 bg-white">
+                        <div id="chart-div-visitors"></div>
+                    </div>
+                </div>
+            </div>
+            <% } %> 
+        </div>
+    </div>
+</div>
+<!-- Cookie Consent by https://www.TermsFeed.com -->
+ <script>
+     const visitor = '<%-JSON.stringify(visitor)%>';
+ </script>
+
+<noscript>Cookie Consent by <a href="https://www.TermsFeed.com/" rel="nofollow noopener">TermsFeed</a></noscript>
+<!-- End Cookie Consent -->

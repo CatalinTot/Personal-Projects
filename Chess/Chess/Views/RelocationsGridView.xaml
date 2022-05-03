@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Chess.Views.RelocationsGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Chess.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="320"
+             d:DesignWidth="150"
+             x:Name="MoversControl">
+    
+    <UserControl.Resources>
+        <vm:RelocationsGridViewModel x:Key="RelocationsGridViewModel"/>
+    </UserControl.Resources>
+
+    <Grid DataContext="{StaticResource RelocationsGridViewModel}">
+        <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                      HorizontalScrollBarVisibility="Disabled" 
+                      Panel.ZIndex="1"
+                      x:Name="Scroller">
+
+            <ItemsControl ItemsSource="{Binding RelocationsCollection, UpdateSourceTrigger=PropertyChanged}">
+
+                <ItemsControl.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBox Text="{Binding White}"
+                                         Background="Transparent"
+                                         Foreground="White"
+                                         TextAlignment="Center"
+                                         BorderBrush="{Binding WhiteBorderBrush}"
+                                         VerticalContentAlignment="Center"
+                                         Height="25"
+                                         IsReadOnly="True"
+                                         Grid.Column="0"/>
+
+                                <TextBox Text="{Binding Black}"
+                                         Background="Transparent"
+                                         Foreground="White"
+                                         TextAlignment="Center"
+                                         BorderBrush="{Binding BlackBorderBrush}"
+                                         VerticalContentAlignment="Center"
+                                         Height="25"
+                                         IsReadOnly="True"
+                                         Grid.Column="1"/>
+
+                            </Grid>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+
+        </ScrollViewer>
+        
+    </Grid>
+
+</UserControl>

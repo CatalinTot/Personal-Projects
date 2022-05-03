@@ -1,0 +1,359 @@
+﻿<UserControl x:Class="FinanceDashboard.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:FinanceDashboard.ViewModel"
+             xmlns:lc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             xmlns:converter="clr-namespace:FinanceDashboard.Converters"
+             xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" 
+             d:DesignWidth="1000">
+    
+    <UserControl.Resources>
+        <vm:DashboardViewModel x:Key="DashboardViewModel"/>
+        <converter:EnumerableToSeriesCollectionConverter x:Key="EnumerableToSeriesConverter"/>
+    </UserControl.Resources>
+
+    <Border Background="#E1ECEB" 
+            DataContext="{StaticResource DashboardViewModel}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Border Background="White"
+            Margin="20"
+            CornerRadius="15">
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding SelectedAccount.Balance, UpdateSourceTrigger=PropertyChanged}"
+                                           Grid.Column="0"
+                                           Margin="5"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="30"
+                                           FontFamily="{StaticResource Roboto-Bold}"/>
+
+                                <TextBlock Text="{Binding SelectedAccount.Abreviation}"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="30"
+                                           Margin="5"
+                                           FontFamily="{StaticResource Roboto-Bold}"/>
+                            </Grid>
+
+                            <TextBlock Text="{Binding SelectedAccount.Name}"
+                                       Grid.Row="1"
+                                       Margin="5"
+                                       FontSize="16"
+                                       FontFamily="{StaticResource Roboto-Regular}"/>
+                        </Grid>
+
+                        <Button Style="{StaticResource NoAnimationButtonStyle}"
+                                Grid.Column="1"
+                                Background="#8264FF"
+                                Foreground="White"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Width="30"
+                                Height="30"
+                                Content="AngleDown"
+                                Command="{Binding ShowAccountsCommand}"
+                                ButtonBase.Click="ButtonClick">
+                        </Button>
+
+
+                        <Ellipse Width="80"
+                                 Height="80"
+                                 Grid.Column="2">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding SelectedAccount.Symbol}"
+                                            RenderOptions.BitmapScalingMode="HighQuality"
+                                            Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{StaticResource NoAnimationButtonStyle}"
+                                Content="Plus"
+                                Background="#8264FF"
+                                Foreground="White"
+                                IsDefault="True"
+                                Margin="5 10 5 10"
+                                Tag="Add money"/>
+
+                        <Button Style="{StaticResource NoAnimationButtonStyle}"
+                                Grid.Column="1"
+                                Content="Send"
+                                Background="#8264FF"
+                                Foreground="White"
+                                IsDefault="True"
+                                Margin="5 10 5 10"
+                                Tag="Transfer"/>
+
+                        <Button Style="{StaticResource NoAnimationButtonStyle}"
+                                Grid.Column="2"
+                                Content="EllipsisH"
+                                Background="#8264FF"
+                                Foreground="white"
+                                Margin="5 10 5 10"
+                                IsDefault="False">
+
+                        </Button>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Transactions"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   FontSize="15"
+                                   FontFamily="{StaticResource Roboto-Regular}"
+                                   Foreground="Gray"/>
+
+                        <Button Style="{StaticResource NoAnimationButtonStyle}"
+                                Grid.Column="1"
+                                Background="Transparent"
+                                Content="Binoculars"
+                                Tag="See all"
+                                IsDefault="True"
+                                Foreground="#8264FF"
+                                FontFamily="{StaticResource Roboto-Bold}"
+                                HorizontalAlignment="Right"
+                                Margin="10"/>
+                    </Grid>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Background="#268264FF"
+                                Width="80"
+                                Height="80"
+                                CornerRadius="50">
+                            <fa:ImageAwesome Icon="ShoppingBag" 
+                                         Width="35"
+                                         Foreground="#8264FF"/>
+                        </Border>
+
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1.5*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="{Binding SelectedAccount.Transactions[0].VendorName}"
+                                       FontSize="20"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="{StaticResource Roboto-Bold}"/>
+
+                            <TextBlock Text="{Binding SelectedAccount.Transactions[0].Date}"
+                                       Grid.Row="1"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="13"
+                                       FontFamily="{StaticResource Roboto-Regular}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="2.2*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="-"
+                                   Grid.Column="0"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Right"
+                                   Margin="0 10 0 0"
+                                   FontSize="20"
+                                   FontFamily="{StaticResource Roboto-Bold}"/>
+
+                            <TextBlock Text="{Binding SelectedAccount.Transactions[0].Price}"
+                                   Grid.Column="1"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Margin="3 10 0 0"
+                                   FontSize="20"
+                                   FontFamily="{StaticResource Roboto-Bold}"/>
+
+                            <TextBlock Text="{Binding SelectedAccount.Abreviation}"
+                                   Grid.Column="2"
+                                   VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Margin="10"
+                                   FontSize="20"
+                                   FontFamily="{StaticResource Roboto-Bold}"/>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border Background="White"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    CornerRadius="15"
+                    Margin="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="lc:LineSeries">
+                            <Setter Property="StrokeThickness" Value="3"></Setter>
+                            <Setter Property="Stroke" Value="#8264FF"></Setter>
+                            <Setter Property="Fill" Value="#268264FF"></Setter>
+                            <Setter Property="PointGeometrySize" Value="10"></Setter>
+                            <Setter Property="LineSmoothness" Value="0"></Setter>
+                        </Style>
+                        <Style TargetType="lc:Axis">
+                            <Setter Property="ShowLabels" Value="True"></Setter>
+                            <Setter Property="IsEnabled" Value="False"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                    <TextBlock Text="Spent Last Month"
+                               VerticalAlignment="Center"
+                               FontSize="20"
+                               Foreground="#8264FF"
+                               Margin="10"
+                               FontFamily="{StaticResource Roboto-Bold}"/>
+
+
+                    <lc:CartesianChart Grid.Row="1" 
+                                       Margin="10"
+                                       Series="{Binding SelectedAccount.Spendings, 
+                                                UpdateSourceTrigger=PropertyChanged, 
+                                                Converter={StaticResource EnumerableToSeriesConverter}, 
+                                                ConverterParameter=LineSeries}">
+
+                        <lc:CartesianChart.AxisX>
+                            <lc:Axis/>
+                        </lc:CartesianChart.AxisX>
+                    </lc:CartesianChart>
+                </Grid>
+            </Border>
+
+            <Border Background="White"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    CornerRadius="15"
+                    Margin="20">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="7*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Nearby Rewards"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               FontSize="17"
+                               Foreground="Gray"
+                               FontFamily="{StaticResource Roboto-Regular}"/>
+                    <m:Map x:Name="myMap"
+                           Grid.Row="1"
+                           CredentialsProvider="PYVWB1CoPBQsaiCOeN4Q~1rVBKhCZiGjZtzNm_GmM4Q~At88SDwocx6nNjIo0eUX3ZUEOrHLpemZe8mFbyAFggss8e48soNxsl9WzX8UmRsk" 
+                           Mode="Road"
+                           Center="{Binding SelectedAccount.NearbyRewards[0], UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                           ZoomLevel="11">
+                        <m:MapItemsControl>
+                            <m:MapItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <m:Pushpin/>
+                                </DataTemplate>
+                            </m:MapItemsControl.ItemTemplate>
+                        </m:MapItemsControl>
+                        <m:Map.Triggers>
+                            <EventTrigger RoutedEvent="m:Map.Loaded">
+
+                            </EventTrigger>
+                        </m:Map.Triggers>
+                    </m:Map>
+                </Grid>
+            </Border>
+
+            <Border Background="White"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    CornerRadius="15"
+                    Margin="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Net worth"
+                               VerticalAlignment="Center"
+                               FontSize="17"
+                               FontFamily="{StaticResource Roboto-Regular}"
+                               Foreground="Gray"
+                               Margin="10"/>
+
+                    <lc:PieChart Grid.Row="1" 
+                                 DataTooltip="{x:Null}" 
+                                 LegendLocation="Bottom"
+                                 Series="{Binding SelectedAccount.PortofolioItems, 
+                                          UpdateSourceTrigger=PropertyChanged, 
+                                          Converter={StaticResource EnumerableToSeriesConverter}, 
+                                          ConverterParameter=PieSeries}">
+
+                    </lc:PieChart>
+                </Grid>
+
+            </Border>
+        </Grid>
+
+    </Border>
+</UserControl>

@@ -1,0 +1,437 @@
+<%- layout('layout/boilerplate') %>
+<%- layout('layout/boilerplate') %>
+<div class="container mt-3">
+    <div class="row justify-content-center mb-3 rounded">
+        <div class="col-md-10 p-0 bg-light shadow">
+            <div class="row justify-content-center mx-2 p-2 mb-3">
+                <div class="col-xs-12 col-sm-10 col-lg-4 p-0">
+                    <table class="table table-striped border mt-3">
+                        <thead>
+                            <tr>
+                                <th class="text-center border-end align-middle">Area</th>
+                                <th class="text-center border-end p-0">
+                                    <div class="border-bottom p-2">First measure</div>
+                                    <div class="p-2"><i data-bs-toggle="modal" data-bs-target="#addFirstMeasure"
+                                            class="far fa-plus-square fs-3"></i></div>
+                                </th>
+                                <% if(currentUser.firstMeasure !== undefined){ %>
+                                <th class="text-center p-0">
+                                    <div class="p-2 border-bottom">New measure</div>
+                                    <div class="p-2"><i data-bs-toggle="modal"
+                                    data-bs-target="#addNewMeasure" class="far fa-plus-square fs-3"></i></div>
+                                </th>
+                                <% } else{%> 
+                                <th class="text-center align-middle p-0">New measure</th>
+                                <% } %> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center border-end">Date</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' : currentUser.firstMeasure.date %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.date %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Neck</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' : currentUser.firstMeasure.neck %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.neck %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Chin</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.chin %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.chin %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Arm</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.arm %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.arm %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Bust</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' : currentUser.firstMeasure.bust %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.bust %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Waist</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.waist %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.waist %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Stomach</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.stomach %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.stomach %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Hip</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.hip %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.hip %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Thighs</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.thighs %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.thighs %></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center border-end">Knee</td>
+                                <td class="text-center border-end"><%= currentUser.firstMeasure === undefined ? '-' :  currentUser.firstMeasure.knee %></td>
+                                <td class="text-center"><%= currentUser.newMeasure === undefined ? '-' : currentUser.newMeasure.knee %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-lg-8 p-3 d-flex justify-content-center align-items-center">
+                    <div class="w-100 p-3 bg-white">
+                        <div id="chart_div_measures"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row justify-content-center mx-2 p-2 mb-3">
+                <div class="col-xs-12 col-sm-10 col-lg-4 p-0 scrollable-table">
+                    <table class="table table-striped border mt-3">
+                         <thead>
+                             <tr>
+                                 <th class="text-center border-end">Date</th>
+                                 <th class="text-center border-end">Weigth</th>
+                                 <th class="text-center">#</th>
+                             </tr>
+                         </thead>
+
+                         <tbody>
+                             <% currentUser.weightArray.forEach((value,i) =>{ %>
+                                <tr id="<%= i %>">
+                                    <td class="text-center border-end"><%= value.date %> </td>
+                                    <td class="text-center border-end"><%= value.weight %> </td>
+                                    <td class="text-center">
+                                        <div class="d-flex">
+                                            <div class="d-flex justify-content-center align-items-center ">
+                                                 <i data-bs-toggle="modal" data-bs-target="#editWeight"class="fas fa-pen-square me-3"></i>
+                                            </div>
+                                            <form action="/user/progress/<%= i %>?_method=DELETE" method="POST">
+                                                <button class="btn btn-white p-0"><i class="fas fa-trash"></i></button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                             <% }) %>   
+                             <tr>
+                                <td colspan="3" class="text-center border-end"><i data-bs-toggle="modal"
+                                        data-bs-target="#addNewWeight" class="far fa-plus-square fs-3"></i>
+                                </td>
+                             </tr>
+                         </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-lg-8 p-3 d-flex justify-content-center align-items-center">
+                    <div class="w-100 p-3 bg-white">
+                        <div id="chart_div_weight"></div>
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="modal fade" id="addFirstMeasure" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">First measure</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form novalidate class="needs-validation" action="/user/progress?action=firstMeasure" method="POST">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="neck" class="form-label">Neck</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="neck" name="neck" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="chin" class="form-label">Chin</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="chin" name="chin" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="arm" class="form-label">Arm</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="arm" name="arm" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="bust" class="form-label">Bust</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="bust" name="bust" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="waist" class="form-label">Waist</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="waist" name="waist" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="stomach" class="form-label">Stomach</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="stomach" name="stomach" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="hip" class="form-label">Hip</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="hip" name="hip" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="thighs" class="form-label">Thighs</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="thighs" name="thighs" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="knee" class="form-label">Knee</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="knee" name="knee" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="date" class="form-label">Date</label>
+                            <div class="input-group mb-3">
+                                <input required type="date" class="form-control" id="date" name="date" value="">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addNewMeasure" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New measure</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form novalidate class="needs-validation" action="/user/progress?action=newMeasure" method="POST">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="neck" class="form-label">Neck</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="neck" name="neck" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="chin" class="form-label">Chin</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="chin" name="chin" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="arm" class="form-label">Arm</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="arm" name="arm" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="bust" class="form-label">Bust</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="bust" name="bust" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="waist" class="form-label">Waist</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="waist" name="waist" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="stomach" class="form-label">Stomach</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="stomach" name="stomach" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="hip" class="form-label">Hip</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="hip" name="hip" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="thighs" class="form-label">Thighs</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="thighs" name="thighs" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md">
+                            <label for="knee" class="form-label">Knee</label>
+                            <div class="input-group mb-3">
+                                <input required type="number" class="form-control" id="knee" name="knee" value="50">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <label for="date" class="form-label">Date</label>
+                            <div class="input-group mb-3">
+                                <input required type="date" class="form-control" id="date" name="date" value="">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addNewWeight" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New weight</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form novalidate class="needs-validation" action="/user/progress?action=newWeight" method="POST">
+                <div class="modal-body">
+                    <label for="weight" class="form-label">New Weight</label>
+                    <div class="input-group mb-3">
+                        <input required type="number" class="form-control" id="weight" name="weight" value="50">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="date" class="form-label">Date</label>
+                    <div class="input-group mb-3">
+                        <input required type="date" class="form-control" id="date" name="date" value="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editWeight" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit weight</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form novalidate class="needs-validation" action="" method="POST">
+                <div class="modal-body">
+                    <label for="weight" class="form-label">Edit Weight</label>
+                    <div class="input-group mb-3">
+                        <input required type="number" class="form-control" id="weight" name="weight" value="50">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                    <label for="date" class="form-label">Date</label>
+                    <div class="input-group mb-3">
+                        <input required type="date" class="form-control" id="date" name="date" value="">
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <h2 class="text-center my-3" data-aos="fade-left" data-aos-duration="1000">Try the premium plan!</h2>
+        <div class="col-11 col-md-8">
+            <div class="row py-3 align-items-center justify-content-center" data-aos="fade-right"
+                data-aos-duration="1000">
+                <div class="col-lg-6 p-3 d-flex flex-column align-items-center bg-info rounded shadow">
+                    <h4 class="text-warning pb-2">Premium</h4>
+                    <img class="w-75 rounded subscription-image"
+                        src="https://res.cloudinary.com/dzainyxbb/image/upload/v1610547856/Wellness/undraw_Short_bio_re_fmx0_ecwna3.png"
+                        alt="">
+                    <div class="w-75 mt-2 plan-features">
+                        <p class=""><i class="fas fa-check me-2"></i>Trainings</p>
+                        <p class=""><i class="fas fa-check me-2"></i>Meal plan</p>
+                        <p class=""><i class="fas fa-check me-2"></i>Comunity</p>
+                        <p class=""><i class="fas fa-check me-2"></i>Meals ideas</p>
+                        <p class=""><i class="fas fa-check me-2"></i>One to One coaching</p>
+                        <p class=""><i class="fas fa-check me-2"></i>Live chat</p>
+                    </div>
+                    <% if(currentUser.isPaid){ %>
+                    <button disabled id="pro-plan-btn" class="btn btn-warning w-50"><i class="fas fa-check me-2"></i>Subscribed</button>
+                    <% }else{ %>
+                    <button id="pro-plan-btn" class="btn btn-warning w-50">Subscribe</button>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

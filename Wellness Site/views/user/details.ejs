@@ -1,0 +1,82 @@
+<%- layout('layout/boilerplate') %>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-10 col-xl-6 bg-light rounded p-3 shadow">
+            <div class="m-auto my-3 user-icon d-flex justify-content-center align-items-center">
+                <i class="fas fa-user fa-user-icon"></i>
+            </div>
+            <form action="/user/details" method="POST" class="needs-validation" novalidate>
+                <label for="e-mail" class="form-label">E-mail</label>
+                <div class="input-group mb-3">
+                    <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span> -->
+                    <input type="e-mail" class="form-control" id="e-mail" name="username"
+                        value="tot.catalin98@gmail.com" disabled>
+                </div>
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group mb-3">
+                    <!-- <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span> -->
+                    <input type="password" class="form-control" id="password" name="password" value="parola" disabled>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label for="age" class="form-label">Age</label>
+                        <div class="input-group mb-3">
+                            <input required type="number" class="form-control" id="age" name="age" value="18">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <label for="weight" class="form-label">Weight</label>
+                        <div class="input-group mb-3">
+                            <input required type="number" class="form-control" id="weight" name="weight" value="50">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label for="heigth" class="form-label">Heigth</label>
+                        <div class="input-group mb-3">
+                            <input required type="number" class="form-control" id="heigth" name="heigth" value="18">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <label for="gender" class="form-label">Gender</label>
+                        <div class="input-group mb-3">
+                            <select class="form-select" name="gender" id="gender" required>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label for="goal" class="form-label">Your goal</label>
+                <div class="input-group mb-3">
+                    <select class="form-select" name="goal" id="goal" required>
+                        <option value="Weightloss">Weightloss</option>
+                        <option value="Maintain your weight">Maintain your weight</option>
+                        <option value="Grow muscles">Grow muscles</option>
+                    </select>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="">
+                    <button class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
